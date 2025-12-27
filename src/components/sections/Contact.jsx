@@ -1,28 +1,23 @@
-import React from "react";
+import { ContactInfo } from "../comp/contact-info";
+import { TitleComp } from "../title-comp";
 
 export const Contact = () => {
+  const data = [
+    { icon: "📧", tit: "Email", info: "developer@example.com" },
+    { icon: "📱", tit: "Phone", info: "+82 10-1234-5678" },
+    { icon: "🌐", tit: "Website", info: "www.portfolio.com" },
+  ];
+
   return (
     <>
       <section id="contact" className="contact">
         <div className="container">
-          <h2 className="section-title">Contact Me</h2>
+          <TitleComp title={"Contact Me"} />
           <div className="contact-content">
             <div className="contact-info">
-              <div className="info-item">
-                <div className="info-icon">📧</div>
-                <h3>Email</h3>
-                <p>developer@example.com</p>
-              </div>
-              <div className="info-item">
-                <div className="info-icon">📱</div>
-                <h3>Phone</h3>
-                <p>+82 10-1234-5678</p>
-              </div>
-              <div className="info-item">
-                <div className="info-icon">🌐</div>
-                <h3>Website</h3>
-                <p>www.portfolio.com</p>
-              </div>
+              {data.map((data) => (
+                <ContactInfo icon={data.icon} tit={data.tit} info={data.info} />
+              ))}
             </div>
             <form className="contact-form" data-aos="fade-left">
               <input type="text" placeholder="이름" required />

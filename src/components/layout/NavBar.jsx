@@ -1,41 +1,25 @@
-import React from "react";
+import { NavLinks } from "../comp/nav-links";
 
 export const NavBar = () => {
+  const data = [
+    { link: "#home", menu: "Home" },
+    { link: "#about", menu: "About" },
+    { link: "#skills", menu: "Skills" },
+    { link: "#projects", menu: "Projects" },
+    { link: "#contact", menu: "Contact" },
+  ];
+
   return (
     <>
-      {" "}
-      {/* <!-- Navigation --> */}
       <nav className="navbar">
         <div className="nav-container">
           <div className="logo" data-aos="fade-right">
             Portfolio
           </div>
           <ul className="nav-menu">
-            <li>
-              <a href="#home" className="nav-link">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#about" className="nav-link">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#skills" className="nav-link">
-                Skills
-              </a>
-            </li>
-            <li>
-              <a href="#projects" className="nav-link">
-                Projects
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="nav-link">
-                Contact
-              </a>
-            </li>
+            {data.map((data) => (
+              <NavLinks link={data.link} menu={data.menu} />
+            ))}
           </ul>
           <div className="hamburger">
             <span></span>

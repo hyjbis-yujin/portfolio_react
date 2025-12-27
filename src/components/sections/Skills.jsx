@@ -1,56 +1,53 @@
-import React from "react";
+import { SkillCard } from "../comp/skill-card";
+import { TitleComp } from "../title-comp";
 
 export const Skills = () => {
+  const data = [
+    {
+      dataAos: "fade-right",
+      icon: "🌐",
+      title: "Frontend",
+      desc: "HTML, CSS, JavaScript, React",
+    },
+    {
+      dataAos: "fade-up",
+      icon: "🎨",
+      title: "Design",
+      desc: "Figma, Photoshop, Illustrator",
+    },
+    {
+      dataAos: "fade-left",
+      icon: "⚙️",
+      title: "Backend",
+      desc: "Node.js, Express, MongoDB",
+    },
+    {
+      dataAos: "fade-down",
+      icon: "📱",
+      title: "Mobile",
+      desc: "React Native, Responsive Design",
+    },
+  ];
   return (
     <>
       <section id="skills" className="skills">
         <div className="container">
-          <h2 className="section-title">Skills</h2>
+          <TitleComp title="Skills" />
           <div className="skills-grid">
-            <div
-              className="skill-card"
-              data-aos="fade-right"
-              data-aos-delay="100"
-            >
-              <div className="skill-icon">🌐</div>
-              <h3>Frontend</h3>
-              <p>HTML, CSS, JavaScript, React</p>
-              <div className="skill-bar">
-                <div className="skill-progress" data-width="90"></div>
-              </div>
-            </div>
-            <div className="skill-card" data-aos="fade-up" data-aos-delay="250">
-              <div className="skill-icon">🎨</div>
-              <h3>Design</h3>
-              <p>Figma, Photoshop, Illustrator</p>
-              <div className="skill-bar">
-                <div className="skill-progress" data-width="85"></div>
-              </div>
-            </div>
-            <div
-              className="skill-card"
-              data-aos="fade-left"
-              data-aos-delay="400"
-            >
-              <div className="skill-icon">⚙️</div>
-              <h3>Backend</h3>
-              <p>Node.js, Express, MongoDB</p>
-              <div className="skill-bar">
-                <div className="skill-progress" data-width="70"></div>
-              </div>
-            </div>
-            <div
-              className="skill-card"
-              data-aos="fade-down"
-              data-aos-delay="550"
-            >
-              <div className="skill-icon">📱</div>
-              <h3>Mobile</h3>
-              <p>React Native, Responsive Design</p>
-              <div className="skill-bar">
-                <div className="skill-progress" data-width="75"></div>
-              </div>
-            </div>
+            {data.map((data) => (
+              <SkillCard
+                dataAos={data.dataAos}
+                icon={data.icon}
+                title={data.title}
+                desc={data.desc}
+              />
+            ))}
+            {/*             <SkillCard
+              dataAos={"fade-right"}
+              icon={"🌐"}
+              title={"Frontend"}
+              desc={"HTML, CSS, JavaScript, React"}
+            /> */}
           </div>
         </div>
       </section>
